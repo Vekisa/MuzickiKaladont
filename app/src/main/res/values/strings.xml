@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Muzicki Kaladont</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="mk">Muzički Kaladont</string>
+    <string name="nova_igra">Nova igra</string>
+    <string name="uputstvo">Uputstvo</string>
+    <string name="o_app">O aplikaciji</string>
+</resources>

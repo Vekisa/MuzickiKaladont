@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -22,6 +23,15 @@ public class NovaIgra extends AppCompatActivity {
     private LinearLayout igrac4;
     private LinearLayout igrac5;
     private LinearLayout igrac6;
+
+    //EditTextovi za unos imena
+    private EditText ime1;
+    private EditText ime2;
+    private EditText ime3;
+    private EditText ime4;
+    private EditText ime5;
+    private EditText ime6;
+
 
     private ImageButton btnAdd;
     private ImageButton btnRemove;
@@ -43,6 +53,13 @@ public class NovaIgra extends AppCompatActivity {
         igrac4 = (LinearLayout) findViewById(R.id.LI4);
         igrac5 = (LinearLayout) findViewById(R.id.LI5);
         igrac6 = (LinearLayout) findViewById(R.id.LI6);
+
+        ime1 = (EditText) findViewById(R.id.ET1);
+        ime2 = (EditText) findViewById(R.id.ET2);
+        ime3 = (EditText) findViewById(R.id.ET3);
+        ime4 = (EditText) findViewById(R.id.ET4);
+        ime5 = (EditText) findViewById(R.id.ET5);
+        ime6 = (EditText) findViewById(R.id.ET6);
 
         igrac3.setVisibility(View.GONE);
         igrac4.setVisibility(View.GONE);
@@ -114,14 +131,26 @@ public class NovaIgra extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                zabeleziImena();
+
                 Intent intent = new Intent(v.getContext(), Parametrizacija.class);
+                zabeleziImena(intent);
                 v.getContext().startActivity(intent);
             }
         });
     }
 
-    void zabeleziImena(){
-        //Ovde se treba pobrinuti o imenima igraca i broju igraca
+    void zabeleziImena(Intent intent){
+        Bundle parametri = new Bundle();
+
+        parametri.putInt("brojIgraca",brojac);
+
+        parametri.putString("imeIgrac1",ime1.getText().toString());
+        parametri.putString("imeIgrac2",ime2.getText().toString());
+        parametri.putString("imeIgrac3",ime3.getText().toString());
+        parametri.putString("imeIgrac4",ime4.getText().toString());
+        parametri.putString("imeIgrac5",ime5.getText().toString());
+        parametri.putString("imeIgrac6",ime6.getText().toString());
+
+        intent.putExtras(parametri);
     }
 }

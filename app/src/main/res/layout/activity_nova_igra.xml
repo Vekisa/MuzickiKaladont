@@ -33,6 +33,7 @@
                 android:text="@string/igrac_1"/>
 
             <EditText
+                android:id="@+id/ET1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="200dp"/>
@@ -50,6 +51,7 @@
                 android:text="@string/igrac_2"/>
 
             <EditText
+                android:id="@+id/ET2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="200dp"/>
@@ -69,6 +71,7 @@
                 android:text="@string/igrac_3"/>
 
             <EditText
+                android:id="@+id/ET3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="200dp"/>
@@ -86,6 +89,7 @@
                 android:text="@string/igrac_4"/>
 
             <EditText
+                android:id="@+id/ET4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="200dp"/>
@@ -103,6 +107,7 @@
                 android:text="@string/igrac_5"/>
 
             <EditText
+                android:id="@+id/ET5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="200dp"/>
@@ -120,6 +125,7 @@
                 android:text="@string/igrac_6"/>
 
             <EditText
+                android:id="@+id/ET6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="200dp"/>

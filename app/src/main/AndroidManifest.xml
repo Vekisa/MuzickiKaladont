@@ -20,6 +20,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".NovaIgra"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_nova_igra"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Uputstvo"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_uputstvo"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".OAplikaciji"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_oaplikaciji"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Parametrizacija"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_parametrizacija"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

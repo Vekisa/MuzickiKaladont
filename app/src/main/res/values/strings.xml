@@ -7,4 +7,21 @@
     <string name="nova_igra">Nova igra</string>
     <string name="uputstvo">Uputstvo</string>
     <string name="o_app">O aplikaciji</string>
+
+    <string name="title_activity_nova_igra">NovaIgra</string>
+
+    <string name="title_activity_uputstvo">Uputstvo</string>
+
+    <string name="title_activity_oaplikaciji">OAplikaciji</string>
+    <string name="igrac_1">Igrac 1:</string>
+    <string name="igrac_2">Igrac 2</string>
+    <string name="ime">Ime</string>
+    <string name="igrac_3">Igrac 3:</string>
+    <string name="igrac_4">Igrac 4</string>
+    <string name="igrac_5">Igrac 5</string>
+    <string name="igrac_6">Igrac 6</string>
+    <string name="igrac_7">Igrac 7</string>
+    <string name="dalje">Dalje</string>
+
+    <string name="title_activity_parametrizacija">Parametrizacija</string>
 </resources>

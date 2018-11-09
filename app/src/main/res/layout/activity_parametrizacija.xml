@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:gravity="start"
+    android:orientation="vertical"
+    tools:context=".Parametrizacija">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingLeft="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/izbor_zaustavljanja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Zaustavljanje igre:"/>
+
+        <RadioGroup
+            android:layout_alignTop="@id/izbor_zaustavljanja"
+            android:layout_marginTop="5dp"
+            android:id="@+id/radio_zaustavljanje"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/radio_automatsko"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/radio_boja"
+                android:text="Automatsko"
+                android:textSize="17dp"
+                android:textColor="#FFFFFF"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radio_manuelno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/radio_boja"
+                android:textSize="17dp"
+                android:textColor="#FFFFFF"
+                android:text="Manuelno (STOP)" />
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/separator_zaustavljanje"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/izbor_vreme"
+            android:layout_alignTop="@id/separator_zaustavljanje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Vreme poteza:"/>
+
+        <RadioGroup
+            android:layout_alignTop="@id/izbor_vreme"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:id="@+id/radio_vreme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:text="15 sekundi"
+                    android:textSize="17dp"
+                    android:textColor="#FFFFFF" />
+
+                <RadioButton
+                    android:id="@+id/radio_30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FFFFFF"
+                    android:text="30 sekundi" />
+
+                <RadioButton
+                    android:id="@+id/radio_45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:textSize="17dp"
+                    android:textColor="#FFFFFF"
+                    android:text="45 sekundi" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:textSize="17dp"
+                    android:textColor="#FFFFFF"
+                    android:text="60 sekundi" />
+
+                <RadioButton
+                    android:id="@+id/radio_90"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FFFFFF"
+                    android:text="90 sekundi" />
+
+                <RadioButton
+                    android:id="@+id/radio_beskonacno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:textSize="17dp"
+                    android:textColor="#FFFFFF"
+                    android:text="Beskonačno"
+                    android:checked="true" />
+            </LinearLayout>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/separator_vreme"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/izbor_zivota"
+            android:layout_alignTop="@id/separator_vreme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            android:text="Broj života:"/>
+
+        <RadioGroup
+            android:layout_alignTop="@id/izbor_zivota"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:id="@+id/radio_zivot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/radio_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:text="1"
+                    android:textSize="17dp"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/srce" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/radio_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textColor="#FFFFFF"
+                    android:text="2 " />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/srce" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/radio_boja"
+                android:layout_marginLeft="20dp"
+                android:textSize="17dp"
+                android:textColor="#FFFFFF"
+                android:text="3 " />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/srce" />
+
+            </LinearLayout>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/separator_zivot"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/fab"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Započni igru"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="17dp"
+            android:background="#4cbb17"
+            android:drawableLeft="@android:drawable/btn_star_big_on"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -132,7 +132,7 @@ public class NovaIgra extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(v.getContext(), Parametrizacija.class);
+                Intent intent = new Intent(NovaIgra.this, Parametrizacija.class);
                 zabeleziImena(intent);
                 v.getContext().startActivity(intent);
             }
@@ -144,12 +144,12 @@ public class NovaIgra extends AppCompatActivity {
 
         parametri.putInt("brojIgraca",brojac);
 
-        parametri.putString("imeIgrac1",ime1.getText().toString());
-        parametri.putString("imeIgrac2",ime2.getText().toString());
-        parametri.putString("imeIgrac3",ime3.getText().toString());
-        parametri.putString("imeIgrac4",ime4.getText().toString());
-        parametri.putString("imeIgrac5",ime5.getText().toString());
-        parametri.putString("imeIgrac6",ime6.getText().toString());
+        parametri.putString("Igrac1",ime1.getText().toString());
+        parametri.putString("Igrac2",ime2.getText().toString());
+        parametri.putString("Igrac3",ime3.getText().toString());
+        parametri.putString("Igrac4",ime4.getText().toString());
+        parametri.putString("Igrac5",ime5.getText().toString());
+        parametri.putString("Igrac6",ime6.getText().toString());
 
         intent.putExtras(parametri);
     }

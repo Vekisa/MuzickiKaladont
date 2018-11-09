@@ -181,7 +181,7 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:id="@+id/radio_1"
+                    android:id="@+id/zivot_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/radio_boja"
@@ -204,7 +204,7 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:id="@+id/radio_2"
+                    android:id="@+id/zivot_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/radio_boja"
@@ -226,21 +226,21 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
-            <RadioButton
-                android:id="@+id/radio_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/radio_boja"
-                android:layout_marginLeft="20dp"
-                android:textSize="17dp"
-                android:textColor="#FFFFFF"
-                android:text="3 " />
+                <RadioButton
+                    android:id="@+id/zivot_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textColor="#FFFFFF"
+                    android:text="3 " />
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/srce" />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/srce" />
 
             </LinearLayout>
 
@@ -260,7 +260,7 @@
         android:gravity="bottom"
         android:orientation="vertical">
         <Button
-            android:id="@+id/fab"
+            android:id="@+id/zapocni"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"

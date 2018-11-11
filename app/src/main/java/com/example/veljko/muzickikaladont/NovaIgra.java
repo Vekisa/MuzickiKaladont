@@ -144,12 +144,12 @@ public class NovaIgra extends AppCompatActivity {
 
         parametri.putInt("brojIgraca",brojac);
 
-        parametri.putString("Igrac1",ime1.getText().toString());
-        parametri.putString("Igrac2",ime2.getText().toString());
-        parametri.putString("Igrac3",ime3.getText().toString());
-        parametri.putString("Igrac4",ime4.getText().toString());
-        parametri.putString("Igrac5",ime5.getText().toString());
-        parametri.putString("Igrac6",ime6.getText().toString());
+        parametri.putString("Igrac 1",ime1.getText().toString());
+        parametri.putString("Igrac 2",ime2.getText().toString());
+        parametri.putString("Igrac 3",ime3.getText().toString());
+        parametri.putString("Igrac 4",ime4.getText().toString());
+        parametri.putString("Igrac 5",ime5.getText().toString());
+        parametri.putString("Igrac 6",ime6.getText().toString());
 
         intent.putExtras(parametri);
     }

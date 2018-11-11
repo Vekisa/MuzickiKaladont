@@ -3,6 +3,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:gravity="top|center"
     tools:context=".Igra">
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
+        <TextView
+            android:id="@+id/napotezuje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Na potezu je igrač "
+            android:textColor="#fff"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/igracime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="IME"
+            android:textColor="#4cbb17"
+            android:textAllCaps="true"
+            android:textSize="60dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/odbrojavanjevremena"
+                android:layout_marginTop="2dp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/mojtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="vreme"
+                    android:textColor="#fff"
+                    android:textSize="120dp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/slikaSlomljenoSrce"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignLeft="@id/odbrojavanjevremena"
+                android:layout_alignTop="@id/odbrojavanjevremena"
+                android:layout_alignRight="@id/odbrojavanjevremena"
+                android:layout_alignBottom="@id/odbrojavanjevremena"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:src="@drawable/slomljeno_srce"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:id="@+id/slikaStop"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignLeft="@id/odbrojavanjevremena"
+                android:layout_alignTop="@id/odbrojavanjevremena"
+                android:layout_alignRight="@id/odbrojavanjevremena"
+                android:layout_alignBottom="@id/odbrojavanjevremena"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:src="@drawable/stop"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dadugme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                android:background="#4cbb17"
+                android:drawableLeft="@android:drawable/btn_star_big_on"
+                android:drawableRight="@android:drawable/btn_star_big_on"
+                android:gravity="center"
+                android:paddingTop="12dp"
+                android:paddingBottom="13dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="12dp"
+                android:text="  PEVAJ!  "
+                android:visibility="gone"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+
+
+            <Button
+                android:id="@+id/nedugme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                android:background="#f00"
+                android:drawableLeft="@android:drawable/presence_busy"
+                android:drawableRight="@android:drawable/presence_busy"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="11dp"
+                android:text=" ODUSTANI! "
+                android:visibility="gone"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

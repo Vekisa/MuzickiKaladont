@@ -1,17 +1,22 @@
 package com.example.veljko.muzickikaladont;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.CountDownTimer;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
@@ -34,6 +39,7 @@ public class Igra extends AppCompatActivity {
             odbrojavanjePocetka, odbrojavanjeStop, odbrojavanjeSrce;
     private TextView brojSekundi, sadaIgra;
     private ImageView stopSlika, slomljenoSrceSlika;
+    private TableLayout igraciTBL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +55,10 @@ public class Igra extends AppCompatActivity {
         sadaIgra = (TextView) findViewById(R.id.igracime);
         stopSlika = (ImageView) findViewById(R.id.slikaStop);
         slomljenoSrceSlika = (ImageView) findViewById(R.id.slikaSlomljenoSrce);
+        igraciTBL = (TableLayout) findViewById(R.id.igraciTBL);
 
         podesiIgru();
+        podesiTabelu();
         osluskivaci();
         zapocniIgru();
 
@@ -86,8 +94,15 @@ public class Igra extends AppCompatActivity {
     }
 
     private void krajIgre(){
-        //TODO: pobednik je trenutniIgrac, ponuditi izbor revansa ili odlazak na glavni meni
-        System.out.println("KRAJ IGRE");
+        Intent intent = new Intent(Igra.this, KrajIgre.class);
+        for (Map.Entry<String, Pair<String,Integer>> entry : igraci.entrySet())
+        {
+            if(entry.getValue().second > 0){
+                parametri.putString("pobednik",entry.getValue().first);
+            }
+        }
+        intent.putExtras(parametri);
+        startActivity(intent);
     }
 
     private void odbrojavaj(int sekunde) {
@@ -272,9 +287,10 @@ public class Igra extends AppCompatActivity {
         zivoti--;
         igraci.put(igrac, new Pair(igraci.get(igrac).first, zivoti));
 
-        if(zivoti == 0){
+        //if(zivoti == 0){
             //TODO: ako je broj zivota 0 zatamni igraca u listi
-        }
+        //}
+        osveziTabelu();
         slomljenoSrce();
     }
 
@@ -331,4 +347,63 @@ public class Igra extends AppCompatActivity {
             }
         }
     }
+
+    private void podesiTabelu(){
+
+        TextView tv;
+        LinearLayout ll;
+        TableRow tr;
+        String igrac;
+        Pair p;
+        String ime;
+        Integer zivoti;
+
+        for(int i = 1; i <= brojIgraca; i++){
+            tv = new TextView(this);
+            ll = new LinearLayout(this);
+            tr = new TableRow(this);
+            tv.setGravity(Gravity.CENTER);
+            ll.setGravity(Gravity.CENTER);
+
+            igrac = "Igrac " + i;
+            p = igraci.get(igrac);
+            ime = (String) p.first;
+            zivoti = (Integer) p.second;
+
+            tv.setText(ime);
+            popuniZivotima(ll,zivoti,tr);
+
+            tr.addView(tv);
+            tr.addView(ll);
+            igraciTBL.addView(tr);
+        }
+    }
+
+    private void popuniZivotima(LinearLayout zivotiL, int zivotiBr, TableRow tblR){
+
+        ImageView imv;
+        for(int i = 0; i < zivotiBr; i++){
+            imv = new ImageView(this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(35, 35);
+            imv.setLayoutParams(layoutParams);
+            imv.setImageResource(R.drawable.srce);
+            zivotiL.addView(imv);
+        }
+
+        if(zivotiBr == 0){
+            tblR.setBackgroundResource(R.color.siva);
+        }
+    }
+
+    private void osveziTabelu(){
+
+            int childCount = igraciTBL.getChildCount();
+
+            if (childCount > 1) {
+                igraciTBL.removeViews(1, childCount - 1);
+            }
+
+            podesiTabelu();
+    }
+
 }

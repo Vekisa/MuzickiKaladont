@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -15,6 +16,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.util.HashMap;
 
 public class NovaIgra extends AppCompatActivity {
 
@@ -75,12 +79,12 @@ public class NovaIgra extends AppCompatActivity {
         configureElements();
     }
 
-    void configureElements(){
+    void configureElements() {
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch(brojac){
+                switch (brojac) {
                     case 2:
                         igrac3.setVisibility(View.VISIBLE);
                         btnRemove.setVisibility(View.VISIBLE);
@@ -106,7 +110,7 @@ public class NovaIgra extends AppCompatActivity {
         btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (brojac){
+                switch (brojac) {
                     case 6:
                         igrac6.setVisibility(View.GONE);
                         --brojac;
@@ -133,24 +137,110 @@ public class NovaIgra extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(NovaIgra.this, Parametrizacija.class);
-                zabeleziImena(intent);
-                v.getContext().startActivity(intent);
+                if (zabeleziImena(intent)) {
+                    v.getContext().startActivity(intent);
+                }
             }
         });
     }
 
-    void zabeleziImena(Intent intent){
+    boolean zabeleziImena(Intent intent) {
         Bundle parametri = new Bundle();
+        HashMap<String,Integer> imena = new HashMap<String,Integer>();
 
-        parametri.putInt("brojIgraca",brojac);
+        parametri.putInt("brojIgraca", brojac);
 
-        parametri.putString("Igrac 1",ime1.getText().toString());
-        parametri.putString("Igrac 2",ime2.getText().toString());
-        parametri.putString("Igrac 3",ime3.getText().toString());
-        parametri.putString("Igrac 4",ime4.getText().toString());
-        parametri.putString("Igrac 5",ime5.getText().toString());
-        parametri.putString("Igrac 6",ime6.getText().toString());
+        parametri.putString("Igrac 1", ime1.getText().toString());
+        parametri.putString("Igrac 2", ime2.getText().toString());
+        parametri.putString("Igrac 3", ime3.getText().toString());
+        parametri.putString("Igrac 4", ime4.getText().toString());
+        parametri.putString("Igrac 5", ime5.getText().toString());
+        parametri.putString("Igrac 6", ime6.getText().toString());
+
+        switch (brojac) {
+            case 2:
+                if (ime1.getText().toString().equals("") || ime2.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Unesite imena svih igraca!", Toast.LENGTH_SHORT);
+                    toast.setMargin(50, 50);
+                    toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
+                    toast.show();
+                    return false;
+                }
+                imena.put(ime1.getText().toString(),1);
+                imena.put(ime2.getText().toString(),2);
+                break;
+            case 3:
+                if (ime1.getText().toString().equals("") || ime2.getText().toString().equals("") ||
+                        ime3.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Unesite imena svih igraca!", Toast.LENGTH_SHORT);
+                    toast.setMargin(50, 50);
+                    toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
+                    toast.show();
+                    return false;
+                }
+                imena.put(ime1.getText().toString(),1);
+                imena.put(ime2.getText().toString(),2);
+                imena.put(ime3.getText().toString(),3);
+                break;
+            case 4:
+                if (ime1.getText().toString().equals("") || ime2.getText().toString().equals("") ||
+                        ime3.getText().toString().equals("") || ime4.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Unesite imena svih igraca!", Toast.LENGTH_SHORT);
+                    toast.setMargin(50, 50);
+                    toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
+                    toast.show();
+                    return false;
+                }
+                imena.put(ime1.getText().toString(),1);
+                imena.put(ime2.getText().toString(),2);
+                imena.put(ime3.getText().toString(),3);
+                imena.put(ime4.getText().toString(),4);
+                break;
+            case 5:
+                if (ime1.getText().toString().equals("") || ime2.getText().toString().equals("") ||
+                        ime3.getText().toString().equals("") || ime4.getText().toString().equals("") ||
+                        ime5.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Unesite imena svih igraca!", Toast.LENGTH_SHORT);
+                    toast.setMargin(50, 50);
+                    toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
+                    toast.show();
+                    return false;
+                }
+                imena.put(ime1.getText().toString(),1);
+                imena.put(ime2.getText().toString(),2);
+                imena.put(ime3.getText().toString(),3);
+                imena.put(ime4.getText().toString(),4);
+                imena.put(ime5.getText().toString(),5);
+                break;
+            case 6:
+                if (ime1.getText().toString().equals("") || ime2.getText().toString().equals("") ||
+                        ime3.getText().toString().equals("") || ime4.getText().toString().equals("") ||
+                        ime5.getText().toString().equals("") || ime6.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Unesite imena svih igraca!", Toast.LENGTH_SHORT);
+                    toast.setMargin(50, 50);
+                    toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
+                    toast.show();
+                    return false;
+                }
+                imena.put(ime1.getText().toString(),1);
+                imena.put(ime2.getText().toString(),2);
+                imena.put(ime3.getText().toString(),3);
+                imena.put(ime4.getText().toString(),4);
+                imena.put(ime5.getText().toString(),5);
+                imena.put(ime6.getText().toString(),6);
+                break;
+        }
+
+        if(imena.size() != brojac) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Imena se moraju razlikovati!", Toast.LENGTH_SHORT);
+            toast.setMargin(50, 50);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
+            toast.show();
+            return false;
+        }
 
         intent.putExtras(parametri);
+        return true;
     }
+
 }

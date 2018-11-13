@@ -40,7 +40,12 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_parametrizacija"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".Igra"></activity>
+        <activity android:name=".Igra" />
+        <activity
+            android:name=".KrajIgre"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_kraj_igre"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

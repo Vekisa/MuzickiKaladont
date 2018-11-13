@@ -166,19 +166,17 @@
             android:id="@+id/dalje"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
             android:layout_gravity="bottom|end"
             android:layout_margin="20dp"
             android:gravity="center"
-            android:text="Dalje"
-            android:textSize="20dp"
+            android:text="@string/dalje"
+            android:textSize="20sp"
             android:paddingLeft="10dp"
             android:paddingRight="17dp"
             android:background="#4cbb17"
             android:drawableLeft="@android:drawable/btn_star_big_on"
             android:textColor="#FFFFFF" />
     </LinearLayout>
-
-
 </LinearLayout>

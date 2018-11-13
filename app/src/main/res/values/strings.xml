@@ -15,7 +15,7 @@
     <string name="title_activity_oaplikaciji">OAplikaciji</string>
     <string name="igrac_1">Igrac 1</string>
     <string name="igrac_2">Igrac 2</string>
-    <string name="ime">Ime</string>
+    <string name="_ime">Ime</string>
     <string name="igrac_3">Igrac 3</string>
     <string name="igrac_4">Igrac 4</string>
     <string name="igrac_5">Igrac 5</string>
@@ -27,11 +27,11 @@
     <string name="automatsko">Automatsko</string>
     <string name="manuelno_stop">Manuelno (STOP)</string>
     <string name="vreme_poteza">Vreme poteza:</string>
-    <string name="_15_sekundi">15 sekundi</string>
+    <string name="_10_sekundi">10 sekundi</string>
+    <string name="_20_sekundi">20 sekundi</string>
     <string name="_30_sekundi">30 sekundi</string>
     <string name="_45_sekundi">45 sekundi</string>
     <string name="_60_sekundi">60 sekundi</string>
-    <string name="_90_sekundi">90 sekundi</string>
     <string name="beskona_no">Beskonačno</string>
     <string name="broj_ivota">Broj života:</string>
     <string name="_1">1</string>
@@ -41,6 +41,9 @@
     <string name="dalje">Dalje</string>
     <string name="igrac">Igrac</string>
     <string name="zivoti">Zivoti</string>
+    <string name="pobednik_je">Pobednik igre je</string>
+    <string name="ponovi_igru">PONOVI IGRU</string>
+    <string name="glavni_meni">GLAVNI MENI</string>
 
     <string name="title_activity_kraj_igre">KrajIgre</string>
 </resources>

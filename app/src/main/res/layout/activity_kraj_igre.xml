@@ -11,15 +11,65 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="KRAJ IGRE"
+        android:text="@string/pobednik_je"
         android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/ime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="ime"/>
+        android:layout_marginTop="2dp"
+        android:text="@string/_ime"
+        android:textColor="#4cbb17"
+        android:textAllCaps="true"
+        android:textSize="60sp"/>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/ponovi_igru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_margin="20dp"
+            android:background="#4cbb17"
+            android:drawableStart="@android:drawable/btn_star_big_on"
+            android:drawableEnd="@android:drawable/btn_star_big_on"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+
+            android:text="@string/ponovi_igru"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/glavni_meni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="#f00"
+            android:drawableStart="@android:drawable/ic_menu_compass"
+            android:drawableEnd="@android:drawable/ic_menu_compass"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="6dp"
+            android:text="@string/glavni_meni"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+    </RelativeLayout>
 </LinearLayout>

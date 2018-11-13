@@ -12,8 +12,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:paddingLeft="10dp"
+        android:gravity="start"
+        android:paddingStart="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -27,7 +27,6 @@
             />
 
         <RadioGroup
-            android:layout_alignTop="@id/izbor_zaustavljanja"
             android:layout_marginTop="5dp"
             android:id="@+id/radio_zaustavljanje"
             android:layout_width="wrap_content"
@@ -62,7 +61,6 @@
 
         <TextView
             android:id="@+id/izbor_vreme"
-            android:layout_alignTop="@id/separator_zaustavljanje"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -71,7 +69,6 @@
             android:text="@string/vreme_poteza"/>
 
         <RadioGroup
-            android:layout_alignTop="@id/izbor_vreme"
             android:orientation="vertical"
             android:layout_marginTop="5dp"
             android:id="@+id/radio_vreme"
@@ -85,13 +82,23 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radio_15"
+                    android:id="@+id/radio_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/radio_boja"
-                    android:text="@string/_15_sekundi"
+                    android:text="@string/_10_sekundi"
                     android:textSize="17sp"
                     android:textColor="#FFFFFF" />
+
+                <RadioButton
+                    android:id="@+id/radio_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:textSize="17sp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/_20_sekundi" />
 
                 <RadioButton
                     android:id="@+id/radio_30"
@@ -99,18 +106,8 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/radio_boja"
                     android:textSize="17sp"
-                    android:layout_marginLeft="10dp"
                     android:textColor="#FFFFFF"
                     android:text="@string/_30_sekundi" />
-
-                <RadioButton
-                    android:id="@+id/radio_45"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/radio_boja"
-                    android:textSize="17sp"
-                    android:textColor="#FFFFFF"
-                    android:text="@string/_45_sekundi" />
 
             </LinearLayout>
 
@@ -121,23 +118,23 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/radio_45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_boja"
+                    android:textSize="17sp"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/_45_sekundi" />
+
+                <RadioButton
                     android:id="@+id/radio_60"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/radio_boja"
                     android:textSize="17sp"
+                    android:layout_marginStart="10dp"
                     android:textColor="#FFFFFF"
                     android:text="@string/_60_sekundi" />
-
-                <RadioButton
-                    android:id="@+id/radio_90"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/radio_boja"
-                    android:textSize="17sp"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#FFFFFF"
-                    android:text="@string/_90_sekundi" />
 
                 <RadioButton
                     android:id="@+id/radio_beskonacno"
@@ -160,7 +157,6 @@
 
         <TextView
             android:id="@+id/izbor_zivota"
-            android:layout_alignTop="@id/separator_vreme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -169,7 +165,6 @@
             android:text="@string/broj_ivota"/>
 
         <RadioGroup
-            android:layout_alignTop="@id/izbor_zivota"
             android:orientation="horizontal"
             android:layout_marginTop="5dp"
             android:id="@+id/radio_zivot"

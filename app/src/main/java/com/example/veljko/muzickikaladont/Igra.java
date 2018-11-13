@@ -40,6 +40,7 @@ public class Igra extends AppCompatActivity {
     private TextView brojSekundi, sadaIgra;
     private ImageView stopSlika, slomljenoSrceSlika;
     private TableLayout igraciTBL;
+    private boolean kraj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class Igra extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_igra);
+        kraj = false;
         parametri = new Bundle((Bundle) this.getIntent().getExtras());
         random = new Random();
         odbrojavanje = null;
@@ -129,20 +131,22 @@ public class Igra extends AppCompatActivity {
     private void odbrojavajZaPocetak() {
         brojSekundi.setText("");
         brojSekundi.setVisibility(View.VISIBLE);
-        odbrojavanjePocetka = new CountDownTimer(6000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                brojSekundi.setText(String.valueOf(millisUntilFinished / 1000));
-            }
-            public void onFinish() {
-                if(odbrojavanjePocetka != null){
-                    odbrojavanjePocetka.cancel();
-                    odbrojavanjePocetka = null;
+        if(!kraj){
+            odbrojavanjePocetka = new CountDownTimer(6000, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    brojSekundi.setText(String.valueOf(millisUntilFinished / 1000));
                 }
-                ((TextView) findViewById(R.id.napotezuje)).setText("Na potezu je igrač ");
-                potezIgraca();
-            }
-        };
-        odbrojavanjePocetka.start();
+                public void onFinish() {
+                    if(odbrojavanjePocetka != null){
+                        odbrojavanjePocetka.cancel();
+                        odbrojavanjePocetka = null;
+                    }
+                    ((TextView) findViewById(R.id.napotezuje)).setText("Na potezu je igrač ");
+                    potezIgraca();
+                }
+            };
+            odbrojavanjePocetka.start();
+        }
     }
 
     private void odbrojavajPevanje(int sekunde) {
@@ -171,8 +175,10 @@ public class Igra extends AppCompatActivity {
             }
         }
 
-        if(lista.size() == 0 || i < 2)
+        if(lista.size() == 0 || i < 2){
+            kraj = true;
             krajIgre();
+        }
         else{
             Collections.shuffle(lista);
             int item = random.nextInt(lista.size());
@@ -187,7 +193,7 @@ public class Igra extends AppCompatActivity {
     }
 
     private void odbrojavajText(){
-        brojSekundi.setTextSize(120);
+        brojSekundi.setTextSize(105);
         prikaziDugmad();
     }
 
@@ -251,8 +257,8 @@ public class Igra extends AppCompatActivity {
     }
 
     private void sakrijDugmad(){
-        ((Button) findViewById(R.id.dadugme)).setVisibility(View.GONE);
-        ((Button) findViewById(R.id.nedugme)).setVisibility(View.GONE);
+        ((Button) findViewById(R.id.dadugme)).setVisibility(View.INVISIBLE);
+        ((Button) findViewById(R.id.nedugme)).setVisibility(View.INVISIBLE);
     }
 
     private void sledeciIgrac(){
@@ -261,11 +267,11 @@ public class Igra extends AppCompatActivity {
         if(vreme != 5){
             int trajanjePoteza = 0;
             switch(vreme){
-                case 0: trajanjePoteza = 15; break;
-                case 1: trajanjePoteza = 30; break;
-                case 2: trajanjePoteza = 45; break;
-                case 3: trajanjePoteza = 60; break;
-                case 4: trajanjePoteza = 90; break;
+                case 0: trajanjePoteza = 10; break;
+                case 1: trajanjePoteza = 20; break;
+                case 2: trajanjePoteza = 30; break;
+                case 3: trajanjePoteza = 45; break;
+                case 4: trajanjePoteza = 60; break;
             }
             odbrojavajText();
             odbrojavaj(trajanjePoteza);
@@ -287,9 +293,6 @@ public class Igra extends AppCompatActivity {
         zivoti--;
         igraci.put(igrac, new Pair(igraci.get(igrac).first, zivoti));
 
-        //if(zivoti == 0){
-            //TODO: ako je broj zivota 0 zatamni igraca u listi
-        //}
         osveziTabelu();
         slomljenoSrce();
     }

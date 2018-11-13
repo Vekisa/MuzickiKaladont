@@ -1,4 +1,4 @@
-package com.example.veljko.muzickikaladont;
+package com.example.veljko.muzickikaladont.Model;
 
 class Igrac {
 

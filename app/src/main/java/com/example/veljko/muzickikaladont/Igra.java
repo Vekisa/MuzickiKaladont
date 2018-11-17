@@ -1,6 +1,7 @@
 package com.example.veljko.muzickikaladont;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.GradientDrawable;
 import android.os.CountDownTimer;
 import android.os.Looper;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -93,6 +95,16 @@ public class Igra extends AppCompatActivity {
             }
         });
 
+
+        ((ImageButton) findViewById(R.id.stopirajdugme)).getBackground().setColorFilter(0xFFFF0000,PorterDuff.Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.stopirajdugme)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sakrijStopDugme();
+                stopirajPotez();
+            }
+        });
     }
 
     private void krajIgre(){
@@ -110,22 +122,22 @@ public class Igra extends AppCompatActivity {
     private void odbrojavaj(int sekunde) {
         brojSekundi.setText("");
         brojSekundi.setVisibility(View.VISIBLE);
-    odbrojavanje = new CountDownTimer(sekunde * 1000 + 1000, 1000) {
-        public void onTick(long millisUntilFinished) {
-            brojSekundi.setText(String.valueOf(millisUntilFinished / 1000));
-        }
-        public void onFinish() {
-
-            if(odbrojavanje != null){
-                odbrojavanje.cancel();
-                odbrojavanje = null;
+        odbrojavanje = new CountDownTimer(sekunde * 1000 + 1000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                brojSekundi.setText(String.valueOf(millisUntilFinished / 1000));
             }
+            public void onFinish() {
 
-            sakrijDugmad();
-            gubitakSrca();
-        }
-    };
-    odbrojavanje.start();
+                if(odbrojavanje != null){
+                    odbrojavanje.cancel();
+                    odbrojavanje = null;
+                }
+
+                sakrijDugmad();
+                gubitakSrca();
+            }
+        };
+        odbrojavanje.start();
     }
 
     private void odbrojavajZaPocetak() {
@@ -186,6 +198,22 @@ public class Igra extends AppCompatActivity {
         }
     }
 
+    private int odabirZaustavljaca(){
+        ArrayList<Integer> lista = new ArrayList<Integer>();
+        int i = 0;
+        for(String k : igraci.keySet()){
+            if(igraci.get(k).second != 0){
+                i++;
+                if(!k.equals("Igrac " + trenutniIgrac))
+                    lista.add(Integer.valueOf(k.substring(6)));
+            }
+        }
+
+        Collections.shuffle(lista);
+        int item = random.nextInt(lista.size());
+        return lista.get(item);
+    }
+
     private void potezBeskonacnoText(){
         brojSekundi.setTextSize(60);
         brojSekundi.setText("TEBE CEKAMO!");
@@ -198,7 +226,7 @@ public class Igra extends AppCompatActivity {
     }
 
     private void stopirajPotez() {
-        odbrojavanjeStop = new CountDownTimer(1500, 1000) {
+        odbrojavanjeStop = new CountDownTimer(1800, 1000) {
             public void onTick(long millisUntilFinished) {
                 brojSekundi.setVisibility(View.INVISIBLE);
                 stopSlika.setVisibility(View.VISIBLE);
@@ -224,9 +252,9 @@ public class Igra extends AppCompatActivity {
     }
 
     private void slomljenoSrce(){
-        brojSekundi.setVisibility(View.GONE);
         brojSekundi.setText("PEVAJ!");
-        odbrojavanjeSrce = new CountDownTimer(1500, 1000) {
+        brojSekundi.setVisibility(View.INVISIBLE);
+        odbrojavanjeSrce = new CountDownTimer(1800, 1000) {
             public void onTick(long millisUntilFinished) {
                 brojSekundi.setVisibility(View.INVISIBLE);
                 slomljenoSrceSlika.setVisibility(View.VISIBLE);
@@ -306,10 +334,23 @@ public class Igra extends AppCompatActivity {
         sadaIgra.setText(igraci.get("Igrac "+trenutniIgrac).first);
     }
 
+    private void prikaziStopDugme(){
+        brojSekundi.setVisibility(View.INVISIBLE);
+        brojSekundi.setText("PEVAJ!");
+        ((ImageButton) findViewById(R.id.stopirajdugme)).setVisibility(View.VISIBLE);
+        ((View) findViewById(R.id.prikaz_zaustavljaca)).setVisibility(View.VISIBLE);
+    }
+
+    private void sakrijStopDugme(){
+        ((ImageButton) findViewById(R.id.stopirajdugme)).setVisibility(View.INVISIBLE);
+        ((View) findViewById(R.id.prikaz_zaustavljaca)).setVisibility(View.INVISIBLE);
+    }
+
+
     private void zapocniIgru(){
-        ((TextView) findViewById(R.id.napotezuje)).setText("Novu igru počinje ");
         odabirSledecegIgraca();
         sadaIgraIgrac();
+        ((TextView) findViewById(R.id.napotezuje)).setText("Novu igru počinje ");
         odbrojavajZaPocetak();
     }
 
@@ -319,11 +360,10 @@ public class Igra extends AppCompatActivity {
             int sekundi = random.nextInt(4) + 6;
             odbrojavajPevanje(sekundi);
         } else {
-            //TODO: show STOP dugme, igrac pritiska dugme STOP, na click se dugme sakrije i pozove sledeciIgrac();
             //privremeno!
-            brojSekundi.setText("PEVAJ!");
-            int sekundi = random.nextInt(10) + 15;
-            odbrojavajPevanje(sekundi);
+            prikaziStopDugme();
+            String zaustavljac = "Igrac " + String.valueOf(odabirZaustavljaca());
+            ((TextView) findViewById(R.id.zaustavljacime)).setText(igraci.get(zaustavljac).first);
         }
     }
 
@@ -341,7 +381,7 @@ public class Igra extends AppCompatActivity {
             String igrac = "Igrac "+i;
             try{
                 String ime = (String) parametri.getSerializable(igrac);
-                if(ime == null || ime == "")
+                if(ime == null || ime .equals(""))
                     break;
                 else
                     igraci.put(igrac, new Pair(ime, new Integer(brojZivota)));

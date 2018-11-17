@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="IME"
+            android:text="@string/_ime"
             android:textColor="#4cbb17"
             android:textAllCaps="true"
             android:textSize="60sp" />
@@ -85,6 +85,23 @@
                 android:src="@drawable/stop"
                 android:visibility="invisible"
                 android:layout_centerHorizontal="true" />
+
+            <ImageButton
+                android:id="@+id/stopirajdugme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/odbrojavanjevremena"
+                android:layout_alignTop="@id/odbrojavanjevremena"
+                android:layout_alignEnd="@id/odbrojavanjevremena"
+                android:layout_alignBottom="@id/odbrojavanjevremena"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/stop"
+                android:visibility="invisible"
+                android:background="#fff"
+                android:layout_centerHorizontal="true"/>
         </RelativeLayout>
 
 
@@ -134,6 +151,39 @@
                 android:visibility="invisible"
                 android:textColor="#fff"
                 android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/prikaz_zaustavljaca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:visibility="invisible">
+            <TextView
+                android:id="@+id/igruzaustavlja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:text="@string/igru_zaustavlja_igrac"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/zaustavljacime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="2dp"
+                android:text="@string/_ime"
+                android:textColor="#f00"
+                android:textAllCaps="true"
+                android:textSize="40sp" />
+            </LinearLayout>
         </RelativeLayout>
 
 
